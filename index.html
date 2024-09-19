@@ -6,15 +6,21 @@
     <title>搜索页面</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
         }
         .search-container {
-            text-align: center;
+            margin-top: 20px;
         }
         input[type="text"] {
             padding: 10px;
@@ -26,15 +32,37 @@
             font-size: 18px;
             margin-left: 10px;
         }
+        .images-container {
+            margin-top: 30px;
+        }
+        .images-container img {
+            width: 100px;
+            height: auto;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+        .images-container img:hover {
+            transform: scale(1.1);
+        }
+        h1 {
+            color: #333;
+        }
     </style>
 </head>
 <body>
-    <div class="search-container">
+    <div class="container">
         <h1>搜索页面</h1>
-        <form action="https://www.baidu.com/s" method="GET">
-            <input type="text" name="wd" placeholder="在这里输入搜索内容" required>
-            <input type="submit" value="搜索">
-        </form>
+        <div class="search-container">
+            <form action="https://www.baidu.com/s" method="GET">
+                <input type="text" name="wd" placeholder="在这里输入搜索内容" required>
+                <input type="submit" value="搜索">
+            </form>
+        </div>
+        <div class="images-container">
+            <img src="https://upload.wikimedia.org/wikipedia/en/e/ef/Minions_standing.jpg" alt="小黄人1">
+            <img src="https://upload.wikimedia.org/wikipedia/en/3/3d/Minions_2015_film_poster.jpg" alt="小黄人2">
+            <img src="https://upload.wikimedia.org/wikipedia/en/7/74/Minions_characters.png" alt="小黄人3">
+        </div>
     </div>
 </body>
 </html>
