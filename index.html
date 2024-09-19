@@ -47,30 +47,14 @@
         h1 {
             color: #333;
         }
-        .history-container {
-            margin-top: 30px;
-            text-align: left;
-            width: 300px;
-        }
-        .history-container ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .history-container li {
-            background-color: #fff;
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>搜索页面</h1>
         <div class="search-container">
-            <form id="searchForm" action="https://www.baidu.com/s" method="GET" target="_blank">
-                <input type="text" name="wd" id="searchInput" placeholder="在这里输入搜索内容" required>
+            <form action="https://www.baidu.com/s" method="GET">
+                <input type="text" name="wd" placeholder="在这里输入搜索内容" required>
                 <input type="submit" value="搜索">
             </form>
         </div>
@@ -79,48 +63,6 @@
             <img src="minion2.jpg" alt="露比2">
             <img src="minion3.jpg" alt="露比3">
         </div>
-        <div class="history-container">
-            <h2>搜索历史</h2>
-            <ul id="historyList"></ul>
-        </div>
     </div>
-
-    <script>
-        // 加载搜索历史
-        function loadSearchHistory() {
-            let history = JSON.parse(localStorage.getItem('searchHistory')) || [];
-            const historyList = document.getElementById('historyList');
-            historyList.innerHTML = '';
-
-            history.forEach(item => {
-                let listItem = document.createElement('li');
-                listItem.textContent = item;
-                historyList.appendChild(listItem);
-            });
-        }
-
-        // 保存搜索历史到 LocalStorage
-        function saveSearchHistory(query) {
-            let history = JSON.parse(localStorage.getItem('searchHistory')) || [];
-            history.unshift(query);  // 新搜索的历史加到顶部
-            if (history.length > 10) {
-                history.pop();  // 限制历史记录最多保存 10 条
-            }
-            localStorage.setItem('searchHistory', JSON.stringify(history));
-        }
-
-        // 监听表单提交事件
-        document.getElementById('searchForm').addEventListener('submit', function(event) {
-            const query = document.getElementById('searchInput').value;
-            saveSearchHistory(query);  // 保存搜索内容
-            loadSearchHistory();  // 刷新页面中的搜索历史
-        });
-
-        // 页面加载时加载历史记录
-        window.onload = function() {
-            loadSearchHistory();
-        };
-    </script>
 </body>
 </html>
-
