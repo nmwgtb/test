@@ -3,23 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>欢迎页面</title>
+    <title>搜索页面</title>
     <style>
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
             font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
         }
-        h1 {
-            font-size: 48px;
-            color: #333;
+        .search-container {
+            text-align: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 18px;
+            width: 300px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-left: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>欢迎</h1>
+    <div class="search-container">
+        <h1>搜索页面</h1>
+        <form action="https://www.google.com/search" method="GET">
+            <input type="text" name="q" placeholder="在这里输入搜索内容" required>
+            <input type="submit" value="搜索">
+        </form>
+    </div>
 </body>
 </html>
